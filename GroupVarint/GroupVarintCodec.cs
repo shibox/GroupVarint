@@ -50,8 +50,16 @@ namespace GroupVarint
 
         #endregion
 
-        
+        #region 公共方法
 
+        /// <summary>
+        /// 获得数字需要使用多少个字节的查询方法，没有使用条件判断逻辑
+        /// 主要是为了提高性能，据测试，无论在那种数据集下，性能都比条件分支快，大约1亿条记录调用耗时250ms
+        /// </summary>
+        /// <param name="v"></param>
+        /// <param name="codeIdx"></param>
+        /// <param name="lenId2"></param>
+        /// <returns></returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public unsafe static int GetByteSize(uint v, int* codeIdx, int* lenId2)
         {
@@ -62,6 +70,16 @@ namespace GroupVarint
             return lenId2[n];
         }
 
+        /// <summary>
+        /// 将二进制数据解码成uint数组，使用了指针，注意做好越界判断和预留好足够的空间
+        /// 该方法解码能达到每秒解码5亿个uint数字
+        /// </summary>
+        /// <param name="buffer"></param>
+        /// <param name="bpos"></param>
+        /// <param name="bsize"></param>
+        /// <param name="array"></param>
+        /// <param name="ap"></param>
+        /// <returns></returns>
         public unsafe static int Decode(byte[] buffer, int bpos, int bsize, uint[] array, ref int ap)
         {
             int n = 0;
@@ -2652,6 +2670,15 @@ namespace GroupVarint
 
         }
 
+        /// <summary>
+        /// 对数字进行编码
+        /// </summary>
+        /// <param name="dst"></param>
+        /// <param name="dstOffset"></param>
+        /// <param name="src"></param>
+        /// <param name="offset"></param>
+        /// <param name="count"></param>
+        /// <returns></returns>
         public unsafe static int Encode(byte[] dst, int dstOffset, uint[] src, int offset, int count)
         {
             int wsize = 0;
@@ -5245,5 +5272,8 @@ namespace GroupVarint
             }
             return wsize;
         }
+
+        #endregion
+
     }
 }

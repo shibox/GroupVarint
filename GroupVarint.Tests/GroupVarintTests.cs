@@ -191,7 +191,7 @@ namespace GroupVarint.Tests
 
         public static int GetValues(out uint v1, out uint v2, out uint v3, out uint v4)
         {
-            uint n = (uint)rd.Next(0, 255);
+            uint n = (uint)rd.Next(0, 0);
             v1 = GetValueByByteSize(n >> 6);
             v2 = GetValueByByteSize((n << 26) >> 30);
             v3 = GetValueByByteSize((n << 28) >> 30);
