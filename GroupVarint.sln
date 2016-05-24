@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GroupVarint", "GroupVarint\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GroupVarint.Tests", "GroupVarint.Tests\GroupVarint.Tests.csproj", "{B3236DA1-CF61-40DF-A6C3-AD1F1E0F0AD9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GroupVarint.Tools", "GroupVarint.Tools\GroupVarint.Tools.csproj", "{7144EE5A-09C8-483B-9E6D-519523B7B646}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{B3236DA1-CF61-40DF-A6C3-AD1F1E0F0AD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B3236DA1-CF61-40DF-A6C3-AD1F1E0F0AD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B3236DA1-CF61-40DF-A6C3-AD1F1E0F0AD9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7144EE5A-09C8-483B-9E6D-519523B7B646}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7144EE5A-09C8-483B-9E6D-519523B7B646}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7144EE5A-09C8-483B-9E6D-519523B7B646}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7144EE5A-09C8-483B-9E6D-519523B7B646}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
