@@ -10,7 +10,7 @@ namespace GroupVarint.Tests
     {
         static void Main(string[] args)
         {
-            GroupVarintTests.EncodeDecodeTest(100000000);
+            GroupVarintTests.EncodeDecodeTest(10000);
         }
     }
 }

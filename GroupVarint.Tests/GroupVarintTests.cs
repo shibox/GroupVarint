@@ -64,7 +64,7 @@ namespace GroupVarint.Tests
             int apos = 0, n = 0;
             for (int i = 0; i < count; i += 4)
             {
-                GetValues(out v1, out v2, out v3, out v4);
+                //GetValues(out v1, out v2, out v3, out v4);
                 src[i] = v1;
                 src[i + 1] = v2;
                 src[i + 2] = v3;
@@ -75,7 +75,13 @@ namespace GroupVarint.Tests
             int encodeCost = (int)watch.ElapsedMilliseconds;
 
             watch = Stopwatch.StartNew();
-            n = GroupVarintCodec.Decode(bytes, 0, pos, dst, ref apos);
+            //n = GroupVarintCodec.Decode(bytes, 0, pos, dst, ref apos);
+            for (int i = 0; i < 10000; i++)
+            {
+                apos = 0;
+                //n = GroupVarintCodec.Decode(bytes, 0, pos, dst, ref apos);
+                n = GroupVarintCodec.DecodeForTest(bytes, 0, pos, dst, ref apos);
+            }
             int decodeCost = (int)watch.ElapsedMilliseconds;
 
             int errorCount = 0;
