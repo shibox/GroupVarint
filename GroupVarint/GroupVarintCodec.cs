@@ -46,7 +46,7 @@ namespace GroupVarint
             1, 1, 1, 1, 1, 1, 1, 1
         };
 
-        readonly static int[] lenId2 = new int[] { 0, 0, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3 };
+        readonly static int[] lenIdx = new int[] { 0, 0, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3 };
 
         #endregion
 
@@ -2691,7 +2691,7 @@ namespace GroupVarint
             {
                 fixed (uint* ps = &src[offset])
                 {
-                    fixed (int* p1 = &codeIdx[0], p2 = &lenId2[0])
+                    fixed (int* p1 = &codeIdx[0], p2 = &lenIdx[0])
                     {
                         uint* psrc = ps;
                         byte* pdst = pd;
@@ -5278,47 +5278,7 @@ namespace GroupVarint
             return wsize;
         }
 
-        public unsafe static int DecodeForTest(byte[] buffer, int bpos, int bsize, uint[] array, ref int ap)
-        {
-            int n = 0;
-            int bend = bpos + bsize;
-
-            fixed (byte* pSrc = &buffer[bpos])
-            {
-                fixed (uint* pDst = &array[ap])
-                {
-                    byte* bs = pSrc;
-                    uint* aps = pDst;
-                    while (bpos < bend)
-                    {
-                        //*(aps + 3) = (*((uint*)(bs + 3)) >> 8);
-                        //uint v = *((uint*)(bs + 1));
-                        //*(aps + 0) = v >> 24;
-                        //*(aps + 1) = (byte)(v >> 16);
-                        //*(aps + 2) = (byte)(v >> 8);
-                        //*(aps + 3) = (byte)v;
-
-                        //byte* v = &(*((uint*)(bs + 1)))[0];
-                        //*aps = *(v + 0);
-                        //*(aps + 1) = *(v + 1);
-                        //*(aps + 2) = *(v + 2);
-                        //*(aps + 3) = *(v + 3);
-
-                        *(aps + 0) = *(bs + 1);
-                        *(aps + 1) = *(bs + 2);
-                        *(aps + 2) = *(bs + 3);
-                        *(aps + 3) = *(bs + 4);
-                        bs += 5;
-                        bpos += 5;
-                        aps += 4;
-                        n++;
-                    }
-                }
-            }
-            ap += (n << 2);
-            return n << 2;
-
-        }
+        
 
         #endregion
 

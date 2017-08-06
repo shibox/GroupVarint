@@ -11,6 +11,7 @@ namespace GroupVarint.Tests
         static void Main(string[] args)
         {
             GroupVarintTests.EncodeDecodeTest(10000);
+            Console.ReadLine();
         }
     }
 }
