@@ -130,7 +130,7 @@ namespace GroupVarint.Tools
             return sb.ToString();
         }
 
-        public static string CreateFastDecode1()
+        public static string CreateFastDecodeNew()
         {
             int l1 = 0, l2 = 0, l3 = 0, l4 = 0;
             StringBuilder sb = new StringBuilder();
@@ -140,25 +140,7 @@ namespace GroupVarint.Tools
             {
                 sb.AppendLine(string.Format("case {0}:", i));
                 sb.AppendLine("{");
-                //sb.AppendLine("bs++;");
-                //int p = 1;
-                //Sizeof(i, ref l1, ref l2, ref l3, ref l4);
-                //WriteFast(sb, l1, p, 0);
-                //p += l1 + 1;
-                //WriteFast(sb, l2, p, 1);
-                //p += l2 + 1;
-                //WriteFast(sb, l3, p, 2);
-                //p += l3 + 1;
-                //WriteFast(sb, l4, p, 3);
-                if (i == 17)
-                {
-
-                }
                 SizeofDecode(sb, i, ref l1, ref l2, ref l3, ref l4);
-
-                //int vs = Sizeof(i);
-                //sb.AppendLine(string.Format("bpos += {0};", vs));
-                //sb.AppendLine("apos += 4;");
                 sb.AppendLine("break;");
                 sb.AppendLine("}");
             }

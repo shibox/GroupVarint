@@ -28,7 +28,7 @@ namespace GroupVarint.Tools
         /// </summary>
         public static void CreateDecode()
         {
-            File.WriteAllText("GroupVarintDecode.cs", GroupVarintCreater.CreateFastDecode1());
+            File.WriteAllText("GroupVarintDecode.cs", GroupVarintCreater.CreateFastDecodeNew());
         }
 
     }
